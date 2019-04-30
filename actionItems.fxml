@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            prefHeight="-Infinity" prefWidth="-Infinity">
+    <top>
+        <Label style="-fx-font: normal bold 20px 'serif'" BorderPane.alignment="TOP_CENTER" text="Current Deliverables"></Label>
+        <TableView  id="infoTable"  >
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+            <columns>
+                <TableColumn prefWidth="350" text = "Title"></TableColumn>
+                <TableColumn prefWidth="350" text="Date Created"></TableColumn>
+                <TableColumn prefWidth="350" text="Due Date"></TableColumn>
+                <TableColumn prefWidth="350" text="Description"></TableColumn>
+            </columns>
+        </TableView>
+
+    </top>
+
+
+
+    <center>
+        <GridPane xmlns:fx="http://javafx.com/fxml"
+                  prefHeight="200" prefWidth="320"
+                  alignment="center" hgap="10" vgap="10">
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="name_label" text="Name:"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
+        <TextField id="Name_field" prefWidth="170"
+                    GridPane.columnIndex="0" GridPane.rowIndex="1"></TextField>
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="duedate_label" text="Due Date"
+               GridPane.columnIndex="2" GridPane.rowIndex="0"></Label>
+        <DatePicker id="Due_date" prefWidth="150" prefHeight="20"
+                    GridPane.columnIndex="2" GridPane.rowIndex="1"></DatePicker>
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="ID_label" text="ID:"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"></Label>
+        <TextField id="ID_input" prefWidth="170"
+                   GridPane.columnIndex="0" GridPane.rowIndex="3"></TextField>
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="Resource_label" text="Resources:"
+               GridPane.columnIndex="0" GridPane.rowIndex="4"></Label>
+        <TextField id="Resources" prefWidth="170"
+               GridPane.columnIndex="0" GridPane.rowIndex="5"></TextField>
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="DateCreated_Label" text="Date Created:"
+               GridPane.columnIndex="2" GridPane.rowIndex="2"></Label>
+        <DatePicker id="Date_created" prefWidth="150" prefHeight="20"
+                        GridPane.columnIndex="2" GridPane.rowIndex="3"></DatePicker>
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="DateFinished_Label" text="Date Finished:"
+               GridPane.columnIndex="2" GridPane.rowIndex="4"></Label>
+        <DatePicker id="Date_finished" prefWidth="150" prefHeight="20"
+                        GridPane.columnIndex="2" GridPane.rowIndex="5"></DatePicker>
+
+        <Button id="submit_button" text="Submit"
+               GridPane.columnIndex="1" GridPane.rowIndex="7" ></Button>
+
+        </GridPane>
+    </center>
+
+
+    <bottom>
+        <Button id="home_button" text="Return Back home"
+                prefHeight="100"></Button>
+    </bottom>
+
+</BorderPane>
