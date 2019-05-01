@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            prefHeight="-Infinity" prefWidth="-Infinity" >
+
+    <top>
+        <VBox>
+        <Label style="-fx-font: normal bold 20px 'serif'" BorderPane.alignment="TOP_CENTER" text="Current Issues"></Label>
+        <TableView  id="issueTable"  >
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+            <columns>
+                <TableColumn prefWidth="250" text = "Title"></TableColumn>
+                <TableColumn prefWidth="200" text="Date Raised"></TableColumn>
+                <TableColumn prefWidth="200" text="Date Assigned"></TableColumn>
+                <TableColumn prefWidth="150" text="Severity"></TableColumn>
+                <TableColumn prefWidth="150" text="Priority"></TableColumn>
+                <TableColumn prefWidth="450" text="Description"></TableColumn>
+                <TableColumn prefWidth="250" text="Raised by"></TableColumn>
+            </columns>
+        </TableView>
+        </VBox>
+    </top>
+
+
+    <center>
+        <GridPane xmlns:fx="http://javafx.com/fxml"
+                  alignment="center" hgap="10" vgap="10">
+
+            <Label style="-fx-font: normal bold 14px 'serif'" id="Title_label" text="Title:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
+            <TextField id="Title_field" prefWidth="170"
+                       GridPane.columnIndex="0" GridPane.rowIndex="1"></TextField>
+
+            <Label style="-fx-font: normal bold 14px 'serif'" id="Description_label" text="Description:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="2"></Label>
+            <TextArea id="Description_input" prefWidth="340"
+                      GridPane.columnIndex="0" GridPane.rowIndex="3"></TextArea>
+
+
+
+            <Label style="-fx-font: normal bold 14px 'serif'" id="dateAssigned_label" text="Date Assigned:"
+                   GridPane.columnIndex="2" GridPane.rowIndex="1"></Label>
+            <DatePicker id="dateAssigned" prefWidth="150" prefHeight="20"
+                        GridPane.columnIndex="2" GridPane.rowIndex="2"></DatePicker>
+
+            <MenuButton id="PriorityBar" text="Priority Level"
+                       GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <items>
+                            <MenuItem text="Low"></MenuItem>
+                            <MenuItem text="Moderate"></MenuItem>
+                            <MenuItem text="High"></MenuItem>
+                            <MenuItem text="Critical"></MenuItem>
+                        </items>
+            </MenuButton>
+
+
+
+            <Label style="-fx-font: normal bold 14px 'serif'" id="dateRaised_Label" text="Date Raised:"
+                   GridPane.columnIndex="4" GridPane.rowIndex="1"></Label>
+            <DatePicker id="date_Raised" prefWidth="150" prefHeight="20"
+                        GridPane.columnIndex="4" GridPane.rowIndex="2"></DatePicker>
+
+            <MenuButton id="SeverityBar" text="Severity Level"
+                        GridPane.columnIndex="4" GridPane.rowIndex="3">
+                <items>
+                    <MenuItem text="Low"></MenuItem>
+                    <MenuItem text="Moderate"></MenuItem>
+                    <MenuItem text="High"></MenuItem>
+                    <MenuItem text="Critical"></MenuItem>
+                </items>
+            </MenuButton>
+
+            <Button id="submit_button" text="Submit"
+                    GridPane.columnIndex="1" GridPane.rowIndex="7" ></Button>
+        </GridPane>
+
+    </center>
+
+    <bottom>
+        <Button id="home_button" text="Return Home"
+                prefHeight="100"></Button>
+    </bottom>
+</BorderPane>

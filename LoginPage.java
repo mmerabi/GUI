@@ -1,19 +1,16 @@
 import javafx.application.Application;
-import static javafx.application.Application.launch;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.event.EventHandler;
-
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+
 
 public class LoginPage extends Application {
     @Override
@@ -137,6 +134,7 @@ public class LoginPage extends Application {
             }
         });
 
+        //Code for Action Items Page
         actionitems.setOnAction(new EventHandler<ActionEvent>() {
 
                 @Override public void handle(ActionEvent e) {
@@ -159,15 +157,18 @@ public class LoginPage extends Application {
                             }
                         });
 
+
                         Button submitButton = (Button) scene.lookup("#submit_button");
                         submitButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
                                 //enter submit form here
+
                             }
                         });
 
-                        //TableView headTable = (TableView) scene.lookup("#infoTable");
+                        TableView headTable = (TableView) scene.lookup("#infoTable");
+
 
                     }
                     catch(IOException f) {
@@ -184,9 +185,31 @@ public class LoginPage extends Application {
 
         issues.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                // open new page for issues
+                try {
+                    stage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("Issues.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load(), 1820, 920);
+                    Stage stage = new Stage();
+                    stage.setTitle("Issues");
+                    stage.setScene(scene);
+                    stage.show();
+
+
+                    Button homeButton = (Button) scene.lookup("#home_button");
+                    homeButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            start(stage);
+                        }
+                    });
+                }
+                catch(IOException f) {
+                    System.out.println("failure");
+                }
             }
         });
+
 
         num6.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {

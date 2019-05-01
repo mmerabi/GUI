@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             prefHeight="-Infinity" prefWidth="-Infinity">
     <top>
@@ -14,10 +15,11 @@
         <TableView  id="infoTable"  >
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
             <columns>
-                <TableColumn prefWidth="350" text = "Title"></TableColumn>
-                <TableColumn prefWidth="350" text="Date Created"></TableColumn>
-                <TableColumn prefWidth="350" text="Due Date"></TableColumn>
-                <TableColumn prefWidth="350" text="Description"></TableColumn>
+                <TableColumn prefWidth="350" text = "Title" id="titleNameCol"></TableColumn>
+                <TableColumn prefWidth="350" text="Date Created" id="dateCreatedCol"></TableColumn>
+                <TableColumn prefWidth="350" text="Due Date" id="dueDateCol"></TableColumn>
+                <TableColumn prefWidth="400" text="Description" id="descriptionCol"></TableColumn>
+                <TableColumn prefWidth="350" text="Date Finished" id="dateFinishedCol"></TableColumn>
             </columns>
         </TableView>
 
@@ -35,7 +37,7 @@
         <TextField id="Name_field" prefWidth="170"
                     GridPane.columnIndex="0" GridPane.rowIndex="1"></TextField>
 
-        <Label style="-fx-font: normal bold 14px 'serif'" id="duedate_label" text="Due Date"
+        <Label style="-fx-font: normal bold 14px 'serif'" id="duedate_label" text="Due Date:"
                GridPane.columnIndex="2" GridPane.rowIndex="0"></Label>
         <DatePicker id="Due_date" prefWidth="150" prefHeight="20"
                     GridPane.columnIndex="2" GridPane.rowIndex="1"></DatePicker>
@@ -68,7 +70,7 @@
 
 
     <bottom>
-        <Button id="home_button" text="Return Back home"
+        <Button id="home_button" text="Return Home"
                 prefHeight="100"></Button>
     </bottom>
 
