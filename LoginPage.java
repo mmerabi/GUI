@@ -91,6 +91,8 @@ public class LoginPage extends Application {
         //Displaying the contents of the stage
         stage.show();
 
+
+        
         deliverables.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 try {
@@ -213,7 +215,42 @@ public class LoginPage extends Application {
 
         num6.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                // open new page for Decisions
+                try {
+                    stage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("Decisions.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load(), 1820, 920);
+                    Stage stage = new Stage();
+                    stage.setTitle("Decisions");
+                    stage.setScene(scene);
+                    stage.show();
+
+
+                    Button homeButton = (Button) scene.lookup("#home_button");
+                    homeButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            start(stage);
+                        }
+                    });
+
+
+                    Button submitButton = (Button) scene.lookup("#submit_button");
+                    submitButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            //enter submit form here
+
+                        }
+                    });
+
+                    TableView headTable = (TableView) scene.lookup("#infoTable");
+
+
+                }
+                catch(IOException f) {
+                    System.out.println("failure");
+                }
             }
         });
 

@@ -5,11 +5,27 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             prefHeight="-Infinity" prefWidth="-Infinity" >
 
+    <top>
+        <VBox>
+            <TableView  id="decisionsTable"  >
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                <columns>
+                    <TableColumn prefWidth="250" text = "Title"></TableColumn>
+                    <TableColumn prefWidth="200" text="Date Raised"></TableColumn>
+                    <TableColumn prefWidth="200" text="Date Assigned"></TableColumn>
+                    <TableColumn prefWidth="150" text="Severity"></TableColumn>
+                    <TableColumn prefWidth="150" text="Priority"></TableColumn>
+                    <TableColumn prefWidth="450" text="Description"></TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </top>
 
-    
 </BorderPane>
 
