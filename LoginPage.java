@@ -4,10 +4,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.event.EventHandler;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -92,26 +97,84 @@ public class LoginPage extends Application {
         stage.show();
 
 
-        
+
         deliverables.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 try {
                     stage.close();
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("deliverables.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), 1820, 920);
+                    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
                     Stage stage = new Stage();
                     stage.setTitle("Deliverables");
                     stage.setScene(scene);
+                    Screen screen = Screen.getPrimary();
+                    Rectangle2D bounds = screen.getVisualBounds();
+                    stage.setX(bounds.getMinX());
+                    stage.setY(bounds.getMinY());
+                    stage.setWidth(bounds.getWidth());
+                    stage.setHeight(bounds.getHeight());
                     stage.show();
 
-                 Button button = (Button) scene.lookup("#button");
-                 button.setOnAction(new EventHandler<ActionEvent>() {
-                     @Override
-                     public void handle(ActionEvent event) {
-                         start(stage);
-                     }
-                 });
+                    //adding deliverable table headers
+                    TableView de1iverableTable = (TableView)scene.lookup("#table1");
+                    de1iverableTable.setEditable(true);
+                    TableColumn<deliverableObject, String> id = new TableColumn<deliverableObject, String>("ID Number");
+                    id.setCellValueFactory(new PropertyValueFactory<deliverableObject, String>("id"));
+                    TableColumn<deliverableObject, String> name = new TableColumn<deliverableObject, String>("Name");
+                    name.setCellValueFactory(new PropertyValueFactory<deliverableObject, String>("name"));
+                    TableColumn<deliverableObject, String> duedate = new TableColumn<deliverableObject, String>("Due Date");
+                    duedate.setCellValueFactory(new PropertyValueFactory<deliverableObject, String>("duedate"));
+                    TableColumn<deliverableObject, String> description = new TableColumn<deliverableObject, String>("Description");
+                    description.setCellValueFactory(new PropertyValueFactory<deliverableObject, String>("description"));
+                    de1iverableTable.getColumns().addAll(id, name, duedate, description);
+
+
+                    //adding tasks table headers
+
+
+                    // create new row for deliverables
+
+
+
+                    // create new row for tasks
+
+                    //Perform Actions for each xml element
+                    Button button1 = (Button) scene.lookup("#home");
+                    button1.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent f) {
+                            start(stage);
+                        }
+                    });
+                    Button button2 = (Button) scene.lookup("#submit");
+                    button2.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent g) {
+                            //submit data to table
+                            TextField dID = (TextField) scene.lookup("#idInput");
+                            String deliverableID = dID.getText();
+
+
+                            TextField dName = (TextField) scene.lookup("#nameInput");
+                            String deliverableName = dName.getText();
+
+
+                            TextField dDD = (TextField) scene.lookup("#dueDate");
+                            String deliverableDD = dDD.getText();
+
+                            TextField dDescript = (TextField) scene.lookup("#descriptionInput");
+                            String deliverableDescription = dDescript.getText();
+
+
+                            // gather data from fields
+                            de1iverableTable.getItems().add(new deliverableObject(deliverableID, deliverableName, deliverableDD, deliverableDescription));
+                        }
+                    });
+
+
+
+
 
                 }
                 catch(IOException f) {

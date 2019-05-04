@@ -27,5 +27,39 @@
         </VBox>
     </top>
 
+    <center>
+        <GridPane xmlns:fx="http://javafx.com/fxml"
+                  alignment="center" hgap="10" vgap="10">
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="Title_label" text="Title:"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
+        <TextField id="Title_field" prefWidth="170"
+                   GridPane.columnIndex="0" GridPane.rowIndex="1"></TextField>
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="Description_label" text="Description:"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"></Label>
+        <TextArea id="Description_input" prefWidth="340"
+                  GridPane.columnIndex="0" GridPane.rowIndex="3"></TextArea>
+
+
+
+        <Label style="-fx-font: normal bold 14px 'serif'" id="dateAssigned_label" text="Date Assigned:"
+               GridPane.columnIndex="2" GridPane.rowIndex="1"></Label>
+        <DatePicker id="dateAssigned" prefWidth="150" prefHeight="20"
+                    GridPane.columnIndex="2" GridPane.rowIndex="2"></DatePicker>
+
+        <MenuButton id="PriorityBar" text="Priority Level"
+                    GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <items>
+                <MenuItem text="Low"></MenuItem>
+                <MenuItem text="Moderate"></MenuItem>
+                <MenuItem text="High"></MenuItem>
+                <MenuItem text="Critical"></MenuItem>
+            </items>
+        </MenuButton>
+
+        </GridPane>
+    </center>
+
 </BorderPane>
 
