@@ -8,14 +8,18 @@
 <?import javafx.geometry.Insets?>
 
 
+<?import javafx.collections.FXCollections?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             prefHeight="-Infinity" prefWidth="-Infinity" >
 
+    <!--Split the page into 5 sections -->
     <top>
         <VBox>
+            <!--VBOX allows for pure vertical formatting so that elements are not overlapping -->
             <TableView  id="decisionsTable"  >
                 <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                 <columns>
+                    <!--Table names along with predefined widths -->
                     <TableColumn prefWidth="250" text = "Title"></TableColumn>
                     <TableColumn prefWidth="200" text="Date Raised"></TableColumn>
                     <TableColumn prefWidth="200" text="Date Assigned"></TableColumn>
@@ -31,6 +35,7 @@
         <GridPane xmlns:fx="http://javafx.com/fxml"
                   alignment="center" hgap="10" vgap="10">
 
+            <!--Standard labels and input fields for user's to submit data -->
         <Label style="-fx-font: normal bold 14px 'serif'" id="Title_label" text="Title:"
                GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
         <TextField id="Title_field" prefWidth="170"
@@ -48,18 +53,72 @@
         <DatePicker id="dateAssigned" prefWidth="150" prefHeight="20"
                     GridPane.columnIndex="2" GridPane.rowIndex="2"></DatePicker>
 
-        <MenuButton id="PriorityBar" text="Priority Level"
-                    GridPane.columnIndex="2" GridPane.rowIndex="3">
-            <items>
-                <MenuItem text="Low"></MenuItem>
-                <MenuItem text="Moderate"></MenuItem>
-                <MenuItem text="High"></MenuItem>
-                <MenuItem text="Critical"></MenuItem>
-            </items>
-        </MenuButton>
+            <!--Comboboxes allow for pre-defined options that force the user to pick one choice -->
+            <ComboBox id="PriorityBar"
+                      GridPane.columnIndex="2" GridPane.rowIndex="3">
 
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Priority"/>
+                        <String fx:value="Low"/>
+                        <String fx:value="Moderate"/>
+                        <String fx:value="High"/>
+                        <String fx:value="Critical"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Priority"/>
+                </value>
+            </ComboBox>
+
+
+            <ComboBox id="SeverityBar"
+                      GridPane.columnIndex="3" GridPane.rowIndex="3">
+
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Severity"/>
+                        <String fx:value="Low"/>
+                        <String fx:value="Moderate"/>
+                        <String fx:value="High"/>
+                        <String fx:value="Critical"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Severity"/>
+                </value>
+            </ComboBox>
+            <!--Flushes data in fields into the table -->
+            <Button id="submit_button" text="Submit"
+                    GridPane.columnIndex="2" GridPane.rowIndex="7" ></Button>
         </GridPane>
     </center>
+
+
+    <right>
+        <!--Additional table to show related documents that can be populated for quick view of the user -->
+        <VBox alignment="CENTER">
+            <TableView  id="ReferenceDocTable"  >
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                <columns>
+                    <TableColumn prefWidth="350" text = "Related Reference Documents"></TableColumn>
+                </columns>
+            </TableView>
+
+            <TableView  id="MeetingNotesTable"  >
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                <columns>
+                    <TableColumn prefWidth="350" text = "Meeting Notes"></TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </right>
+
+    <bottom>
+        <!--Returns the user back to main menu -->
+        <Button id="home_button" text="Return Home"
+                prefHeight="100"></Button>
+    </bottom>
 
 </BorderPane>
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            prefHeight="-Infinity" prefWidth="-Infinity" >
+
+    <!--Split the page into 5 sections -->
+    <top>
+        <!--Vbox allows for vertical formatting to remain consistent and no overlapping -->
+        <VBox>
+            <Label style="-fx-font: normal bold 20px 'serif'" id="RelatedIssues_label" text="Resources"></Label>
+            <TableView  id="ResourcesTable"  >
+                <!--Table at the top defined by insets for margin/borders -->
+                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                <columns>
+                    <TableColumn prefWidth="250" text = "Title"></TableColumn>
+                    <TableColumn prefWidth="200" text="Date Raised"></TableColumn>
+                    <TableColumn prefWidth="200" text="Date Assigned"></TableColumn>
+                    <TableColumn prefWidth="350" text="Priority"></TableColumn>
+                    <TableColumn prefWidth="350" text="Severity"></TableColumn>
+                    <TableColumn prefWidth="450" text="Description"></TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </top>
+
+    <center>
+        <GridPane xmlns:fx="http://javafx.com/fxml"
+                  alignment="center" hgap="10" vgap="10">
+
+            <!--Standard Label and input fields for the user -->
+            <Label style="-fx-font: normal bold 14px 'serif'" id="Title_label" text="Title:"
+                   GridPane.columnIndex="4" GridPane.rowIndex="1"></Label>
+            <TextField id="Title_field" prefWidth="170"
+                       GridPane.columnIndex="5" GridPane.rowIndex="1"></TextField>
+
+            <Label style="-fx-font: normal bold 14px 'serif'" id="PayRate_label" text="Pay Rate:"
+                   GridPane.columnIndex="4" GridPane.rowIndex="2"></Label>
+            <TextField id="PayRate_input" prefWidth="140"
+                      GridPane.columnIndex="5" GridPane.rowIndex="2"></TextField>
+
+            <Label style="-fx-font: normal bold 14px 'serif'" id="SkillSet_label" text="Skill Set:"
+                   GridPane.columnIndex="0" GridPane.rowIndex="2"></Label>
+            <TextArea id="SkilSet_input" prefWidth="240"
+                      GridPane.columnIndex="0" GridPane.rowIndex="3"></TextArea>
+
+            <!--Datepicker boxes allow a calendar to popup for easy selection by the user -->
+            <Label style="-fx-font: normal bold 14px 'serif'" id="dateRaised_Label" text="Date Raised:"
+                   GridPane.columnIndex="4" GridPane.rowIndex="3"></Label>
+            <DatePicker id="date_Raised" prefWidth="150" prefHeight="20"
+                        GridPane.columnIndex="5" GridPane.rowIndex="3"></DatePicker>
+
+            <Label style="-fx-font: normal bold 14px 'serif'" id="dateAssigned_Label" text="Date Assigned:"
+                   GridPane.columnIndex="4" GridPane.rowIndex="4"></Label>
+            <DatePicker id="date_Assigned" prefWidth="150" prefHeight="20"
+                        GridPane.columnIndex="5" GridPane.rowIndex="4"></DatePicker>
+
+
+            <!--Combo boxes are select and pre-defined options so the User must select from a dropdown box -->
+            <ComboBox id="PriorityBar"
+                      GridPane.columnIndex="4" GridPane.rowIndex="6">
+
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Priority"/>
+                        <String fx:value="Low"/>
+                        <String fx:value="Moderate"/>
+                        <String fx:value="High"/>
+                        <String fx:value="Critical"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Priority"/>
+                </value>
+            </ComboBox>
+
+
+            <ComboBox id="SeverityBar"
+                      GridPane.columnIndex="5" GridPane.rowIndex="6">
+
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Severity"/>
+                        <String fx:value="Low"/>
+                        <String fx:value="Moderate"/>
+                        <String fx:value="High"/>
+                        <String fx:value="Critical"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Severity"/>
+                </value>
+            </ComboBox>
+            <Button id="submit_button" text="Submit"
+                    GridPane.columnIndex="4" GridPane.rowIndex="8" ></Button>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <!--Return Home to the main Screen -->
+        <Button id="home_button" text="Return Home"
+                prefHeight="100"></Button>
+    </bottom>
+
+</BorderPane>

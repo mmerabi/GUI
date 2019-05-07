@@ -10,6 +10,8 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             prefHeight="-Infinity" prefWidth="-Infinity">
+
+    <!--Split the page into 5 sections -->
     <top>
         <Label style="-fx-font: normal bold 20px 'serif'" BorderPane.alignment="TOP_CENTER" text="Current Deliverables"></Label>
         <TableView  id="infoTable"  >
@@ -31,7 +33,10 @@
         <GridPane xmlns:fx="http://javafx.com/fxml"
                   prefHeight="200" prefWidth="320"
                   alignment="center" hgap="10" vgap="10">
+            <!--GridPane allows for a tile layout within each of the borders we have defined so that elements can be moved
+             around with ease-->
 
+            <!--Labels and text fields that allow the user to submit data to the program -->
         <Label style="-fx-font: normal bold 14px 'serif'" id="name_label" text="Name:"
                GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
         <TextField id="Name_field" prefWidth="170"
@@ -52,6 +57,7 @@
         <TextField id="Resources" prefWidth="170"
                GridPane.columnIndex="0" GridPane.rowIndex="5"></TextField>
 
+        <!-- Datepicker elements allow for simple use of a highlighted date to be selected in a visual calendar manner-->
         <Label style="-fx-font: normal bold 14px 'serif'" id="DateCreated_Label" text="Date Created:"
                GridPane.columnIndex="2" GridPane.rowIndex="2"></Label>
         <DatePicker id="Date_created" prefWidth="150" prefHeight="20"
@@ -62,6 +68,7 @@
         <DatePicker id="Date_finished" prefWidth="150" prefHeight="20"
                         GridPane.columnIndex="2" GridPane.rowIndex="5"></DatePicker>
 
+        <!--Flushes the data in the fields into the table -->
         <Button id="submit_button" text="Submit"
                GridPane.columnIndex="1" GridPane.rowIndex="7" ></Button>
 
@@ -70,6 +77,7 @@
 
 
     <bottom>
+        <!--Returns the user back to the main menu -->
         <Button id="home_button" text="Return Home"
                 prefHeight="100"></Button>
     </bottom>

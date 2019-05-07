@@ -190,61 +190,128 @@ public class LoginPage extends Application {
         tasks.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // open new page for tasks
+                try {
+                    stage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("Tasks.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load(), 1820, 920);
+                    Stage stage = new Stage();
+                    stage.setTitle("Tasks");
+                    stage.setScene(scene);
+                    stage.show();
+
+
+                    Button homeButton = (Button) scene.lookup("#home_button");
+                    homeButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            start(stage);
+                        }
+                    });
+
+
+                    Button submitButton = (Button) scene.lookup("#submit_button");
+                    submitButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            //enter submit form here
+
+                        }
+                    });
+
+                }
+                catch(IOException f) {
+                    System.out.println("failure");
+                }
             }
         });
 
         resources.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // open new page for resources
+
+                try {
+                    stage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("Resources.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load(), 1820, 920);
+                    Stage stage = new Stage();
+                    stage.setTitle("Resources");
+                    stage.setScene(scene);
+                    stage.show();
+
+
+                    Button homeButton = (Button) scene.lookup("#home_button");
+                    homeButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            start(stage);
+                        }
+                    });
+
+
+                    Button submitButton = (Button) scene.lookup("#submit_button");
+                    submitButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            //enter submit form here
+
+                        }
+                    });
+
+                }
+                catch(IOException f) {
+                    System.out.println("failure");
+                }
             }
         });
 
         //Code for Action Items Page
         actionitems.setOnAction(new EventHandler<ActionEvent>() {
 
-                @Override public void handle(ActionEvent e) {
-                    try {
-                        stage.close();
-                        FXMLLoader fxmlLoader = new FXMLLoader();
-                        fxmlLoader.setLocation(getClass().getResource("actionItems.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load(), 1820, 920);
-                        Stage stage = new Stage();
-                        stage.setTitle("Action Items");
-                        stage.setScene(scene);
-                        stage.show();
+            @Override public void handle(ActionEvent e) {
+                try {
+                    stage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("actionItems.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load(), 1820, 920);
+                    Stage stage = new Stage();
+                    stage.setTitle("Action Items");
+                    stage.setScene(scene);
+                    stage.show();
 
 
-                        Button homeButton = (Button) scene.lookup("#home_button");
-                        homeButton.setOnAction(new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent event) {
-                                start(stage);
-                            }
-                        });
+                    Button homeButton = (Button) scene.lookup("#home_button");
+                    homeButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            start(stage);
+                        }
+                    });
 
 
-                        Button submitButton = (Button) scene.lookup("#submit_button");
-                        submitButton.setOnAction(new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent event) {
-                                //enter submit form here
+                    Button submitButton = (Button) scene.lookup("#submit_button");
+                    submitButton.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            //enter submit form here
 
-                            }
-                        });
+                        }
+                    });
 
-                        TableView headTable = (TableView) scene.lookup("#infoTable");
-
-
-                    }
-                    catch(IOException f) {
-                        System.out.println("failure");
-                    }
+                    TableView headTable = (TableView) scene.lookup("#infoTable");
 
 
-
-                    // open new page for Action Items
                 }
-            });
+                catch(IOException f) {
+                    System.out.println("failure");
+                }
+
+
+
+                // open new page for Action Items
+            }
+        });
 
 
 
