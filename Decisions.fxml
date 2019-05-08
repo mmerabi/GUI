@@ -53,6 +53,12 @@
         <DatePicker id="dateAssigned" prefWidth="150" prefHeight="20"
                     GridPane.columnIndex="2" GridPane.rowIndex="2"></DatePicker>
 
+            <Label style="-fx-font: normal bold 14px 'serif'" id="dateRaised_label" text="Date Raised:"
+                   GridPane.columnIndex="3" GridPane.rowIndex="1"></Label>
+            <DatePicker id="dateRaised" prefWidth="150" prefHeight="20"
+                        GridPane.columnIndex="3" GridPane.rowIndex="2"></DatePicker>
+
+
             <!--Comboboxes allow for pre-defined options that force the user to pick one choice -->
             <ComboBox id="PriorityBar"
                       GridPane.columnIndex="2" GridPane.rowIndex="3">

@@ -79,12 +79,12 @@
             <DatePicker id="date_Raised" prefWidth="150" prefHeight="20"
                         GridPane.columnIndex="4" GridPane.rowIndex="2"></DatePicker>
 
-            <ComboBox id="PriorityBar"
+            <ComboBox id="SeverityBar"
                       GridPane.columnIndex="2" GridPane.rowIndex="3">
 
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Priority"/>
+                        <String fx:value="Severity"/>
                         <String fx:value="Low"/>
                         <String fx:value="Moderate"/>
                         <String fx:value="High"/>
@@ -92,10 +92,14 @@
                     </FXCollections>
                 </items>
                 <value>
-                    <String fx:value="Priority"/>
+                    <String fx:value="Severity"/>
                 </value>
 
             </ComboBox>
+            <Label style="-fx-font: normal bold 14px 'serif'" id="RaisedBy_label" text="Raised By:"
+                   GridPane.columnIndex="3" GridPane.rowIndex="4"></Label>
+            <TextField id="RaisedBy_field" prefWidth="170"
+                       GridPane.columnIndex="4" GridPane.rowIndex="4"></TextField>
 
             <!--Flush contents to the table -->
             <Button id="submit_button" text="Submit"

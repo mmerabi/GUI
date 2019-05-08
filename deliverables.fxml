@@ -1,38 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
 <?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Text?>
-<AnchorPane maxHeight="920" maxWidth="1820" minHeight="920" minWidth="1820" prefHeight="920" prefWidth="1820" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button layoutX="5" layoutY="5" id="home" text="Home" />
-      <TableView layoutX="60" layoutY="5" id="table1"  maxHeight="500" maxWidth="375" prefHeight="500" prefWidth="375">
-      </TableView>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
 
-      <Text layoutX="450" layoutY="15" text="Deliverable Name Here"/>
-      <TextField layoutX="450" layoutY="20" id="nameInput"/>
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            prefHeight="-Infinity" prefWidth="-Infinity" >
 
-      <Text layoutX="650" layoutY="15" text="Deliverable Due Date"/>
-      <TextField layoutX="650" layoutY="20" id="dueDate"/>
+   <!--Split the page into 5 sections -->
+   <top>
+      <!--Vbox allows for vertical formatting to remain consistent and no overlapping -->
+      <VBox>
+         <Label style="-fx-font: normal bold 20px 'serif'" id="Deliverables_label" text="Deliverables"></Label>
+         <TableView  id="DeliverablesTable"  >
+            <!--Table at the top defined by insets for margin/borders -->
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+            <columns>
+               <TableColumn prefWidth="250" text = "Title:"></TableColumn>
+               <TableColumn prefWidth="200" text="Due Date:"></TableColumn>
+               <TableColumn prefWidth="450" text="Description:"></TableColumn>
+               <TableColumn prefWidth="450" text="Requirements:"></TableColumn>
+            </columns>
+         </TableView>
+      </VBox>
+   </top>
 
-      <Text layoutX="850" layoutY="15" text="Deliverable ID"/>
-      <TextField layoutX="850" layoutY="20" id="idInput"/>
+   <center>
+      <GridPane xmlns:fx="http://javafx.com/fxml"
+                alignment="center" hgap="10" vgap="10">
 
-      <Button layoutX="1050" layoutY="15" id="submit" text="Submit" />
+         <!--Standard Label and input fields for the user -->
+         <VBox>
+         <Label style="-fx-font: normal bold 14px 'serif'" id="Title_label" text="Title:"
+                GridPane.columnIndex="1" GridPane.rowIndex="2"></Label>
+         <TextField id="Title_field" prefWidth="170"
+                    GridPane.columnIndex="1" GridPane.rowIndex="3"></TextField>
 
-      <Text layoutX="450" layoutY="60" text="Deliverable Description"/>
-      <TextField layoutX="450" layoutY="65" id="descriptionInput" prefWidth="400" prefHeight="200"/>
+         <!--Formatting two text areas so that they can be side by side with labels on top -->
+
+         <HBox>
+         <VBox>
+            <Label style="-fx-font: normal bold 16px 'serif'" id="Description_label" text="Description:"></Label>
+            <TextArea id="Description_input" prefWidth="240"></TextArea>
+         </VBox>
+
+         <VBox>
+            <Label style="-fx-font: normal bold 16px 'serif'" id="SkillSet_label" text="Requirements:"></Label>
+            <TextArea id="Requirements_input" prefWidth="240"></TextArea>
+         </VBox>
+         </HBox>
+
+         <Label style="-fx-font: normal bold 14px 'serif'" id="dateAssigned_Label" text="Date Assigned:"
+                GridPane.columnIndex="1" GridPane.rowIndex="4"></Label>
+         <DatePicker id="date_Assigned" prefWidth="150" prefHeight="20"
+                     GridPane.columnIndex="1" GridPane.rowIndex="5"></DatePicker>
 
 
+         <Button id="submit_button" text="Submit"
+                 GridPane.columnIndex="1" GridPane.rowIndex="8" ></Button>
+         </VBox>
+      </GridPane>
+   </center>
 
-      <Text layoutX="450" layoutY="280" text="Related Requirements"/>
-      <TableView id="table2" layoutX="450" layoutY="285" maxHeight="500" maxWidth="375" prefHeight="500" prefWidth="375">
-      </TableView>
+   <bottom>
+      <!--Return Home to the main Screen -->
+      <Button id="home_button" text="Return Home"
+              prefHeight="100"></Button>
+   </bottom>
 
-   </children>
-</AnchorPane>
+</BorderPane>

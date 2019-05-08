@@ -18,10 +18,11 @@
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
             <columns>
                 <TableColumn prefWidth="350" text = "Title" id="titleNameCol"></TableColumn>
-                <TableColumn prefWidth="350" text="Date Created" id="dateCreatedCol"></TableColumn>
-                <TableColumn prefWidth="350" text="Due Date" id="dueDateCol"></TableColumn>
-                <TableColumn prefWidth="400" text="Description" id="descriptionCol"></TableColumn>
-                <TableColumn prefWidth="350" text="Date Finished" id="dateFinishedCol"></TableColumn>
+                <TableColumn prefWidth="150" text="ID: " id="dateFinishedCol"></TableColumn>
+                <TableColumn prefWidth="200" text="Date Created" id="dateCreatedCol"></TableColumn>
+                <TableColumn prefWidth="200" text="Due Date" id="dueDateCol"></TableColumn>
+                <TableColumn prefWidth="200" text="Date Finished" id="dateFinishedCol"></TableColumn>
+                <TableColumn prefWidth="500" text="Description" id="descriptionCol"></TableColumn>
             </columns>
         </TableView>
 

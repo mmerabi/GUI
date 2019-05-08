@@ -21,6 +21,7 @@
                     <TableColumn prefWidth="250" text = "Title"></TableColumn>
                     <TableColumn prefWidth="200" text="Due Date"></TableColumn>
                     <TableColumn prefWidth="200" text="Completion Date"></TableColumn>
+                    <TableColumn prefWidth="200" text="Priority Level"></TableColumn>
                     <TableColumn prefWidth="350" text="Assigned Resources"></TableColumn>
                     <TableColumn prefWidth="450" text="Description"></TableColumn>
                 </columns>
@@ -58,7 +59,7 @@
 
             <!--Boxes that let the user easily select from a set of options that are predefined -->
             <ComboBox id="PriorityBar"
-                      GridPane.columnIndex="4" GridPane.rowIndex="4">
+                      GridPane.columnIndex="3" GridPane.rowIndex="5">
 
                 <items>
                     <FXCollections fx:factory="observableArrayList">
@@ -74,23 +75,11 @@
                 </value>
             </ComboBox>
 
+            <Label style="-fx-font: normal bold 14px 'serif'" id="Resources_label" text="Assigned Resources:"
+                   GridPane.columnIndex="3" GridPane.rowIndex="4"></Label>
+            <TextField id="Resources_field" prefWidth="170"
+                       GridPane.columnIndex="4" GridPane.rowIndex="4"></TextField>
 
-            <ComboBox id="SeverityBar"
-                      GridPane.columnIndex="3" GridPane.rowIndex="4">
-
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Severity"/>
-                        <String fx:value="Low"/>
-                        <String fx:value="Moderate"/>
-                        <String fx:value="High"/>
-                        <String fx:value="Critical"/>
-                    </FXCollections>
-                </items>
-                <value>
-                    <String fx:value="Severity"/>
-                </value>
-            </ComboBox>
 
             <!--Submit button to flush contents to the table at the top -->
             <Button id="submit_button" text="Submit"
